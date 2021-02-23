@@ -140,13 +140,11 @@ $fes = mysqli_fetch_array($qq);
                   <div class="card-body">
                     <form method="POST" enctype="multipart/form-data">
                       <?php
-                        if (isset($_POST['save'])) {
+                        if (isset($_POST['updateCo'])) {
                             $a = mysqli_real_escape_string($conn,$_POST['comNames']);
                             $b = mysqli_real_escape_string($conn,$_POST['comEmail']);
                             $c = mysqli_real_escape_string($conn,$_POST['location']);
                             $d = mysqli_real_escape_string($conn,$_POST['phone_number']);
-                            $e = $b;
-                            $f = $d.uniqid();
                             $g = mysqli_real_escape_string($conn,$_POST['comTin']);
                         
                             //images
@@ -158,30 +156,34 @@ $fes = mysqli_fetch_array($qq);
                             
                             $i = uniqid().".".$ext1[1];
                         
-                        
-                            $check = mysqli_query($conn,"SELECT *FROM companies WHERE comName='$a' AND comTIN = '$g' ") or die(mysqli_error());
-                            if (mysqli_num_rows($check)>0) {
-                                echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
-                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-                                <h3>Your company already registered</h3>
-                                </div>";
+                            if (empty($tk)) {
+                                  $update  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='',comLocation='$c',comPhone='$d',comTIN='$g'") or die(mysqli_error($conn));
+                                  //move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
+                                  if ($update) {
+                                      echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
+                                                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                  <h3>Thanks for updating company</h3>
+                                                  </div>";
+                                  }else {
+                                      echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
+                                              <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                              <h3>Failed to be saved</h3>
+                                              </div>";
+                                  }
                             }else{
-                                
-                                $insert  = mysqli_query($conn,"INSERT INTO companies (id,comName,comEmail,comLocation,comPhone,comUsername,comPassword,comTIN,thumbnail,coStatus) VALUES
-                                ('','$a','$b','$c','$d','$e','$f','$g','$i','Approved')") or die(mysqli_error($conn));
-                                move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
-                                if ($insert) {
-                                    echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
-                                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-                                                <h3>New Company Registered successfully</h3>
-                                                </div>";
-                                }else {
-                                    echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
-                                            <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-                                            <h3>Failed to be saved</h3>
-                                            </div>";
-                                }
-                        
+                              $update1  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='',comLocation='$c',comPhone='$d',comTIN='$g'") or die(mysqli_error($conn));
+                                  move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
+                                  if ($update1) {
+                                      echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
+                                                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                  <h3>Thanks for updating company</h3>
+                                                  </div>";
+                                  }else {
+                                      echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
+                                              <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                              <h3>Failed to be saved</h3>
+                                              </div>";
+                                  }
                             }
                         }
                       ?>
@@ -226,7 +228,7 @@ $fes = mysqli_fetch_array($qq);
                         </div>
                       </div>
                       <div class="form-group">
-                        <button type="submit" name="save" class="btn btn-primary btn-lg btn-block">
+                        <button type="submit" name="updateCo" class="btn btn-primary btn-lg btn-block">
                           Register
                         </button>
                       </div>
