@@ -142,39 +142,39 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input type="text" name="coName" class="form-control form-control-lg form-control" placeholder="Company Name" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                                    <input type="text" required name="coName" class="form-control form-control-lg form-control" placeholder="Company Name" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input name="coEmail" type="email" class="form-control form-control-lg form-control" placeholder="Company Email" data-rule="email" data-msg="Please enter a valid email">
-                                    <div class="validate"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <input type="text" name="coLocation" class="form-control form-control-lg form-control" placeholder="Company location" data-rule="minlen:4" data-msg="At least 4 characters of location">
-                                    <div class="validate"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <input name="phoneNumber" type="number" class="form-control form-control-lg form-control" placeholder="Phone Number" data-rule="minlen:10" data-msg="Please enter valid phone">
+                                    <input name="coEmail" required type="email" class="form-control form-control-lg form-control" placeholder="Company Email" data-rule="email" data-msg="Please enter a valid email">
                                     <div class="validate"></div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input type="text" name="cousername" class="form-control form-control-lg form-control" placeholder="Username" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                                    <input type="text" required name="coLocation" class="form-control form-control-lg form-control" placeholder="Company location" data-rule="minlen:4" data-msg="At least 4 characters of location">
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input name="copassword" type="password" class="form-control form-control-lg form-control" placeholder="Password" data-rule="minlen:6" data-msg="Please enter a valid Password">
+                                    <input name="phoneNumber" required type="number" class="form-control form-control-lg form-control" placeholder="Phone Number" data-rule="minlen:10" data-msg="Please enter valid phone">
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <input type="text" required name="cousername" class="form-control form-control-lg form-control" placeholder="Username" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <input name="copassword" required type="password" class="form-control form-control-lg form-control" placeholder="Password" data-rule="minlen:6" data-msg="Please enter a valid Password">
                                     <div class="validate"></div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@
                             
                             <div class="col-md-6 mb-3">
                               <div class="form-group">
-                                  <input type="text" name="coTin" class="form-control form-control-lg form-control" placeholder="Company's TIN" data-rule="minlen:3" data-msg="Please enter at least 3 characters of TIN">
+                                  <input type="text" name="coTin" required class="form-control form-control-lg form-control" placeholder="Company's TIN" data-rule="minlen:3" data-msg="Please enter at least 3 characters of TIN">
                                   <div class="validate"></div>
                               </div>
                             </div>

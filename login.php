@@ -134,7 +134,7 @@
                 <?php 
                   include("inc/loginFile.php");
                 ?>
-                    <form method="POST" role="form">
+                    <form method="POST" role="form" name="forms" class="forms">
                         <div class="row">
 
                             <div class="col-md-12 mb-3">
@@ -146,18 +146,18 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <input type="text" name="uname" class="form-control form-control-lg form-control" placeholder="Username" data-rule="minlen:3" data-msg="Please enter at least 3 characters username">
-                                    <div class="validate"></div>
+                                    <input type="text" required id="uname" name="uname" class="form-control form-control-lg form-control" placeholder="Username" data-rule="minlen:3" data-msg="Please enter at least 3 characters username">
+                                    <div class="validateUser"></div>
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <input type="password" name="pass" class="form-control form-control-lg form-control" placeholder="Password" data-rule="minlen:6" data-msg="Please enter at least 6 characters of Password">
+                                    <input type="password" required id="pass" name="pass" class="form-control form-control-lg form-control" placeholder="Password" data-rule="minlen:6" data-msg="Please enter at least 6 characters of Password">
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="col-md-12 text-right">
-                                <button name="login" type="submit" class="btn btn-sm btn-primary">Login</button>
+                                <button name="login" id="submits" type="submit" class="btn btn-sm btn-primary">Login</button>
                             </div>
                             <div class="col-md-12 text-center">
                                 Need new Account? <a href="newCompany">Sign up</a>
@@ -170,9 +170,7 @@
         </div>
       </div>
     </section><!-- End Contact Single-->
-
   </main><!-- End #main -->
-
   <!-- ======= Footer ======= -->
   <?php include("inc/footer.php");?>
   <!-- End  Footer -->

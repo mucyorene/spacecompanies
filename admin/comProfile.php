@@ -41,7 +41,7 @@
                 <div class="card author-box">
                   <div class="card-body">
                     <div class="author-box-center">
-                      <img alt="image" src="assets/img/blog/img01.png" class="rounded-circle author-box-picture">
+                      <img alt="image" src="media/companies/<?= $fe['thumbnail']?>" class="rounded-circle author-box-picture">
                       <div class="clearfix"></div>
                       <div class="author-box-name">
                         <a href=""><?= $fe['comName']?></a>
@@ -239,7 +239,56 @@
                         </ul> -->
                       </div>
                       <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
-                        <form method="POST" class="needs-validation forms">
+                        <form method="POST" class="needs-validation forms"  enctype="multipart/form-data">
+                          <?php
+                            if (isset($_POST['updateCo'])) {
+                                $a = mysqli_real_escape_string($conn,$_POST['coName']);
+                                $b = mysqli_real_escape_string($conn,$_POST['coEmail']);
+                                $c = mysqli_real_escape_string($conn,$_POST['coLocation']);
+                                $d = mysqli_real_escape_string($conn,$_POST['coPhone']);
+                                $e = mysqli_real_escape_string($conn,$_POST['cousername']);
+                                $f = mysqli_real_escape_string($conn,$_POST['copassword']);
+                                $g = mysqli_real_escape_string($conn,$_POST['comTin']);
+                            
+                                //images
+                            
+                                $tk = mysqli_real_escape_string($conn,$_FILES['thumbnails']['name']);
+
+                                if (empty($tk)) {
+                                      $update  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='$b',comLocation='$c',comPhone='$d',comTIN='$g',comUsername='$e',comPassword='$f' WHERE id = '$id'") or die(mysqli_error($conn));
+                                      //move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
+                                      if ($update) {
+                                          echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
+                                                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                      <h3>Thanks for updating company</h3>
+                                                      </div>";
+                                      }else {
+                                          echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
+                                                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                  <h3>Failed to be saved</h3>
+                                                  </div>";
+                                      }
+                                }else{
+
+                                $ext1 = explode(".",$tk);
+                                $i = uniqid().".".$ext1[1];
+
+                                  $update1  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='$b',comLocation='$c',comPhone='$d',comTIN='$g',thumbnail='$i',comUsername='$e',comPassword='$f' WHERE id = '$id'") or die(mysqli_error($conn));
+                                      move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
+                                      if ($update1) {
+                                          echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
+                                                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                      <h3>Thanks for updating company</h3>
+                                                      </div>";
+                                      }else {
+                                          echo $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
+                                                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                  <h3>Failed to be saved</h3>
+                                                  </div>";
+                                      }
+                                }
+                            }
+                          ?>
                           <div class="card-header">
                             <h4>Edit Profile</h4>
                           </div>
@@ -251,6 +300,7 @@
                               <div class="form-group col-md-6 col-12">
                                 <label>Full Names</label>
                                 <input type="text" class="form-control" name="coName" value="<?= $fe['comName']?>">
+                                <!-- <input type="hidden" name="userId" id="userId" value=""> -->
                                 <div class="invalid-feedback">
                                   Please fill in the first name
                                 </div>
@@ -290,13 +340,25 @@
                                 <input type="text" name="copassword" class="form-control" value="<?= $fe['comPassword']?>">
                               </div>
                             </div>
-
                             <div class="row">
-                              <div class="form-group col-md-12 col-12">
-                                <!-- <label>Location</label> -->
-                                <input type="file" name="thumbnails" class="form-control">
+                              <div class="form-group col-6">
+                                <label for="frist_name">Company TIN</label>
+                                <input id="frist_name" type="text" class="form-control" value="<?= $fe['comTIN']?>" name="comTin" autofocus>
+                              </div>
+                              <div class="form-group col-6">
+                                <label for="thum">Thumbnail</label>
+                                  <div class="row">
+                                    <div class="col-md-7">
+                                      <input id="thum" type="file" class="form-control" name="thumbnails">
+                                    </div>
+                                    <div class="col-md-5">
+                                      <img src="media/companies/<?= $fe['thumbnail']?>" alt="no" class="img img-fluid">
+                                    </div>
+                                  </div>
+                                <div class="invalid-feedback"></div>
                               </div>
                             </div>
+                            
                             <!-- <div class="row">
                               <div class="form-group col-12">
                                 <label>Bio</label>
@@ -444,24 +506,27 @@
 
 
 <script>
-  $(document).ready(function(){
-    $(".forms").on('submit',function(e){
-      e.preventDefault();
-      $.ajax({
-        type:"POST",
-        url:"php/updateCompany",
-        data:$(".forms").serialize(),
-        beforeSend:function(){
-          // console.log('Hello saving');
-          $(".saving").text('Saving...');
-        },
-        success:function(response){
-          $(".responses").html("Data saved successfully").addClass("alert alert-success");
-          console.log('Saved successfully');
-        },
-      });
-    });
-  });
+  // $(document).ready(function(){
+  //   $(".forms").on('submit',function(e){
+  //     e.preventDefault();
+  //     $.ajax({
+  //       type:"POST",
+  //       url:"php/updateCompany",
+  //       data:$(".forms").serialize(),
+  //       beforeSend:function(){
+  //         // console.log('Hello saving');
+  //         $(".saving").text('Saving...');
+  //       },
+  //       success:function(response){
+
+  //         alert(response);
+
+  //         $(".responses").html("Data saved successfully").addClass("alert alert-success");
+  //         console.log('Saved successfully');
+  //       },
+  //     });
+  //   });
+  // });
 </script>
 
 <!-- profile.html  21 Nov 2019 03:49:32 GMT -->

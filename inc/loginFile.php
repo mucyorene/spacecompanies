@@ -4,12 +4,11 @@
 
 		$username=mysqli_real_escape_string($conn,$_POST['uname']);
 		$password=mysqli_real_escape_string($conn,$_POST['pass']);
-
+		
 		$sql=mysqli_query($conn,"SELECT * FROM admin WHERE username='$username'  AND passwords='$password'") or die(mysqli_error($conn));
 		$sql2=mysqli_query($conn,"SELECT * FROM companies WHERE comUsername='$username'  AND comPassword='$password'") or die(mysqli_error($conn));
 
 		
-
 		if (mysqli_num_rows($sql)>0) {
 			$fes = mysqli_fetch_array($sql);
 			$_SESSION['spaceco']=$fes['id'];

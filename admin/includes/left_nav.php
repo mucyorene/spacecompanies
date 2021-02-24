@@ -10,6 +10,10 @@
             <li class="dropdown">
               <a href="index" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
+
+            <li class="dropdown">
+              <a href="filter" class="nav-link"><i data-feather="monitor"></i><span>Periodic Filter</span></a>
+            </li>
             <!-- <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="life-buoy"></i><span>Widgets</span></a>

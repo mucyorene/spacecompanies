@@ -135,7 +135,7 @@ $fes = mysqli_fetch_array($qq);
               <div class="col-sm-8 col-md-8 col-lg-8">
                 <div class="card card-primary">
                   <div class="card-header">
-                    <h4>Register new Company</h4>
+                    <h4>Edit Company</h4>
                   </div>
                   <div class="card-body">
                     <form method="POST" enctype="multipart/form-data">
@@ -150,14 +150,9 @@ $fes = mysqli_fetch_array($qq);
                             //images
                         
                             $tk = mysqli_real_escape_string($conn,$_FILES['thumbnails']['name']);
-                            
-                        
-                            $ext1 = explode(".",$tk);
-                            
-                            $i = uniqid().".".$ext1[1];
-                        
+
                             if (empty($tk)) {
-                                  $update  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='',comLocation='$c',comPhone='$d',comTIN='$g'") or die(mysqli_error($conn));
+                                  $update  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='$b',comLocation='$c',comPhone='$d',comTIN='$g' WHERE id = '$id'") or die(mysqli_error($conn));
                                   //move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
                                   if ($update) {
                                       echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
@@ -171,7 +166,11 @@ $fes = mysqli_fetch_array($qq);
                                               </div>";
                                   }
                             }else{
-                              $update1  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='',comLocation='$c',comPhone='$d',comTIN='$g'") or die(mysqli_error($conn));
+
+                            $ext1 = explode(".",$tk);
+                            $i = uniqid().".".$ext1[1];
+
+                              $update1  = mysqli_query($conn,"UPDATE companies SET comName='$a',comEmail='$b',comLocation='$c',comPhone='$d',comTIN='$g',thumbnail='$i' WHERE id = '$id'") or die(mysqli_error($conn));
                                   move_uploaded_file($_FILES['thumbnails']['tmp_name'],"media/companies/".$i);
                                   if ($update1) {
                                       echo $msg="<div class='alert alert-success alert-dismissible' role='alert'>
@@ -212,7 +211,7 @@ $fes = mysqli_fetch_array($qq);
                       <div class="row">
                         <div class="form-group col-6">
                           <label for="frist_name">Company TIN</label>
-                          <input id="frist_name" type="text" class="form-control" value="<?= $fes['comUsername']?>" name="comTin" autofocus>
+                          <input id="frist_name" type="text" class="form-control" value="<?= $fes['comTIN']?>" name="comTin" autofocus>
                         </div>
                         <div class="form-group col-6">
                           <label for="thum">Thumbnail</label>
@@ -284,7 +283,7 @@ $fes = mysqli_fetch_array($qq);
 <script type="text/javascript">
   $(function(){
     $("#backHome").click(function(){
-      window.location="listOfRents";
+      window.location="allCompanies";
     });
   });
 </script>
