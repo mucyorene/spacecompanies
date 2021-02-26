@@ -253,3 +253,9 @@
 
 <!-- email-read.html  21 Nov 2019 03:51:00 GMT -->
 </html>
+<script>
+  $(function(){
+      $("#navNotification1").addClass('active');
+      $("#navNotificationUnread").addClass('active');
+  });
+</script>

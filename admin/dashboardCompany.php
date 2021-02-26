@@ -152,6 +152,11 @@
   <script src="assets/js/page/datatables.js"></script>
 </body>
 
+<script>
+  $(function(){
+      $("#mainDash").addClass('active');
+  });
+</script>
 
 <!-- basic-table.html  21 Nov 2019 03:55:20 GMT -->
 </html>

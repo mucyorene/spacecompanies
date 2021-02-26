@@ -258,3 +258,9 @@ require_once("includes/db.php");
     });
   });
 </script>
+<script>
+  $(function(){
+      $("#companiesNav").addClass('active');
+      $("#allCo").addClass('active');
+  });
+</script>

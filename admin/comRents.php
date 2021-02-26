@@ -283,3 +283,9 @@ require_once("includes/db.php");
     });
   });
 </script>
+<script>
+  $(function(){
+      $("#spaceRent").addClass('active');
+      $("#spaceRent3").addClass('active');
+  });
+</script>

@@ -142,3 +142,9 @@
     window.location="php/updateReservationSales?identifications="+id;
   }
 </script>
+<script>
+    $(function(){
+        $("#spaceSala1").addClass('active');
+        $("#bLink2").addClass('active');
+    });
+</script>

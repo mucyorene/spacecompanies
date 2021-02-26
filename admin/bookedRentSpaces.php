@@ -140,3 +140,9 @@
     window.location="php/updateReservation?identifications="+id+"!"+officeId;
   }
 </script>
+<script>
+  $(function(){
+      $("#spaceRent").addClass('active');
+      $("#spaceRent1").addClass('active');
+  });
+</script>

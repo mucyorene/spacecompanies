@@ -36,7 +36,7 @@
               <div class="col-sm-12 col-md-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
-                    <h4><button class="btn btn-sm btn-outline-info">Approve All</button></h4>
+                    <!-- <h4><button class="btn btn-sm btn-outline-info">Approve All</button></h4> -->
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -125,4 +125,10 @@
   function updateResStatus(id,officeId){
     window.location="php/updateReservation?identifications="+id+"!"+officeId;
   }
+</script>
+<script>
+  $(function(){
+      $("#spaceSale").addClass('active');
+      $("#spaceRent5").addClass('active');
+  });
 </script>

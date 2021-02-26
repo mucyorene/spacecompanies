@@ -6,48 +6,55 @@ if(isset($_GET['day1']))
     $day1=$_GET['day1'];
     $day2=$_GET['day2'];
 }
+
+// $si = mysqli_query($conn,"SELECT DAY(resTime) FROM customers") or die(mysqli_error($conn));
+// $fe = mysqli_fetch_array($si);
+///$real = strtotime($fe['resTime']);
+// echo date('Y')==$fe['resTime'];
+//echo $fe['DAY(resTime)'];
+
 ?>
 <div class="table-responsive">
-                    <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
-                        <thead>
-                        <tr>
-                            <th>N<sup><u>o</u></sup></th>
-                            <th>Property Id</th>
-                            <th>Customer Name</th>
-                            <th>Phone Number</th>
-                            <th>#CODE</th>
-                            <th>Email</th>
-                            <th>Customer Location</th>
-                            <th>Check in</th>
-                            <th>Check out</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                            $id = 
-                            $query = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Rent' AND customers.reserveStatus='Approved' AND customers.checkin between '$day1' AND '$day2'") or die(mysqli_error($conn));
-                            if (mysqli_num_rows($query)>0) {
-                                $counter = 1;
-                                while ($rows = mysqli_fetch_array($query)) {
-                                   ?>
-                                    <tr>
-                                        <td><?= $counter;?></td>
-                                        <td><?= $rows['propertyId'];?></td>
-                                        <td><?= $rows['fullnames'];?></td>
-                                        <td><?= $rows['phoneNumber'];?></td>
-                                        <td><?= $rows['reserveId'];?></td>
-                                        <td><?= $rows['email'];?></td>
-                                        <td><?= $rows['cusLocation'];?></td>
-                                        <td><?= $rows['checkin'];?></td>
-                                        <td><?= $rows['checkout'];?></td>
-                                    </tr>
-                                   <?php
-                                $counter++;}
-                            }
-                        ?>
-                        </tbody>
-                    </table>
-                    </div>
+    <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+        <thead>
+        <tr>
+            <th>N<sup><u>o</u></sup></th>
+            <th>Property Id</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
+            <th>#CODE</th>
+            <th>Email</th>
+            <th>Customer Location</th>
+            <th>Check in</th>
+            <th>Check out</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+            $id = 
+            $query = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Rent' AND customers.reserveStatus='Approved' AND customers.checkin between '$day1' AND '$day2'") or die(mysqli_error($conn));
+            if (mysqli_num_rows($query)>0) {
+                $counter = 1;
+                while ($rows = mysqli_fetch_array($query)) {
+                    ?>
+                    <tr>
+                        <td><?= $counter;?></td>
+                        <td><?= $rows['propertyId'];?></td>
+                        <td><?= $rows['fullnames'];?></td>
+                        <td><?= $rows['phoneNumber'];?></td>
+                        <td><?= $rows['reserveId'];?></td>
+                        <td><?= $rows['email'];?></td>
+                        <td><?= $rows['cusLocation'];?></td>
+                        <td><?= $rows['checkin'];?></td>
+                        <td><?= $rows['checkout'];?></td>
+                    </tr>
+                    <?php
+                $counter++;}
+            }
+        ?>
+        </tbody>
+    </table>
+</div>
 
                     <script src="assets/js/app.min.js"></script>
   <!-- JS Libraies -->

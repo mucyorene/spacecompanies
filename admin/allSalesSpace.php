@@ -129,7 +129,7 @@ require_once("includes/db.php");
               <div class="col-sm-12 col-md-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
-                    <h4>Export Table</h4>
+                    <!-- <h4>Export Table</h4> -->
                     
                 </div>
                 <div class="card-body">
@@ -221,7 +221,12 @@ require_once("includes/db.php");
   <script src="assets/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
   <script src="assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
   <script src="assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-
+  <script>
+    $(function(){
+        $("#spaceSale").addClass('active');
+        $("#spaceRent6").addClass('active');
+    });
+</script>
   <!-- Page Specific JS File -->  <script src="assets/js/page/forms-advanced-forms.js"></script>
   <!-- Template JS File -->
 

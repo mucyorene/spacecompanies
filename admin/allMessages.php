@@ -251,3 +251,9 @@
 
 <!-- email-read.html  21 Nov 2019 03:51:00 GMT -->
 </html>
+<script>
+  $(function(){
+      $("#messageNav").addClass('active');
+      $("#allMessage1").addClass('active');
+  });
+</script>

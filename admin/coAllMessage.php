@@ -249,7 +249,12 @@
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
 </body>
-
+<script>
+    $(function(){
+        $("#messageNav").addClass('active');
+        $("#messageNav2").addClass('active');
+    });
+</script>
 
 <!-- email-read.html  21 Nov 2019 03:51:00 GMT -->
 </html>

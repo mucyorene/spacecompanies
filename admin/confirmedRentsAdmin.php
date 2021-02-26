@@ -126,3 +126,9 @@
     window.location="php/updateReservation?identifications="+id+"!"+officeId;
   }
 </script>
+<script>
+  $(function(){
+      $("#spaceRent").addClass('active');
+      $("#spaceRent2").addClass('active');
+  });
+</script>

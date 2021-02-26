@@ -163,3 +163,9 @@ require_once("includes/db.php");
     });
   });
 </script>
+<script>
+    $(function(){
+        $("#spaceSala1").addClass('active');
+        $("#bLink3").addClass('active');
+    });
+</script>

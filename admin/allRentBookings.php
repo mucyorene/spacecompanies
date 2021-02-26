@@ -28,7 +28,6 @@
         include 'includes/header.php';
         include 'includes/left_nav.php';
        ?>
-    
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
@@ -37,7 +36,7 @@
               <div class="col-sm-12 col-md-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
-                    <h4>Export Table</h4>
+                    <!-- <h4>Export Table</h4> -->
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -124,4 +123,11 @@
   function updateResStatus(id){
     window.location="php/updateReservation?identifications="+id;
   }
+</script>
+
+<script>
+  $(function(){
+      $("#spaceRent").addClass('active');
+      $("#spaceRent1").addClass('active');
+  });
 </script>

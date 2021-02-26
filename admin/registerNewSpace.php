@@ -202,3 +202,8 @@ require_once("includes/db.php");
 //     });
 //   });
 </script>
+<script>
+  $(function(){
+      $("#mainNew").addClass('active');
+  });
+</script>

@@ -125,3 +125,9 @@
     window.location="php/updateReservation?identifications="+id;
   }
 </script>
+<script>
+  $(function(){
+      $("#spaceSale").addClass('active');
+      $("#spaceRent4").addClass('active');
+  });
+</script>

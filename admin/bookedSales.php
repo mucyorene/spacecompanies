@@ -127,6 +127,12 @@
     <script src="assets/bundles/datatables/datatables.min.js"></script>
   <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
   <script src="assets/js/page/datatables.js"></script>
+  <script>
+      $(function(){
+          $("#spaceSala1").addClass('active');
+          $("#bLink1").addClass('active');
+      });
+  </script>
 </body>
 <!-- basic-table.html  21 Nov 2019 03:55:20 GMT -->
 </html>

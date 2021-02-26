@@ -40,7 +40,7 @@
                         <li>
                           <a href="" title="Inbox">Contact Messages &nbsp;
                               <?php
-                                $fi = mysqli_query($conn,"SELECT *FROM conotification WHERE status='unread' AND companyId='{$_SESSION['spacecompanies']}'") or die(mysqli_error($conn));
+                                $fi = mysqli_query($conn,"SELECT *FROM conotification WHERE companyId='{$_SESSION['spacecompanies']}'") or die(mysqli_error($conn));
                                 if (mysqli_num_rows($fi)>0) {
                                     $num = mysqli_num_rows($fi);
                                     echo "(<b>".$num."</b>)";
@@ -249,7 +249,12 @@
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
 </body>
-
+<script>
+    $(function(){
+        $("#notificationNav").addClass('active');
+        $("#notificationNav2").addClass('active');
+    });
+</script>
 
 <!-- email-read.html  21 Nov 2019 03:51:00 GMT -->
 </html>

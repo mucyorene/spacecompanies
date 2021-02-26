@@ -130,7 +130,7 @@ require_once("includes/db.php");
               <div class="card">
                 <div class="card-header">
                   <div class="col-sm-12 col-md-12 col-lg-12">
-                    <button class="btn btn-info" style="float:right;" id="openReg">Add New</button>
+                    <!-- <button class="btn btn-info" style="float:right;" id="openReg">Add New</button> -->
                     
                   </div>
                 </div>
@@ -237,5 +237,11 @@ require_once("includes/db.php");
     $("#openReg").click(function(){
       window.location= "newCompany";
     });
+  });
+</script>
+<script>
+  $(function(){
+      $("#spaceRent").addClass('active');
+      $("#spaceRent3").addClass('active');
   });
 </script>
