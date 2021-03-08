@@ -34,6 +34,7 @@ if (isset($_POST['save'])) {
 
         move_uploaded_file($_FILES['thumbnails']['tmp_name'],"admin/media/companies/".$i);
         if ($insert) {
+            sendsms($a,$d)
             $msg="<div class='alert alert-success alert-dismissible' role='alert'>
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                         <h3>Thanks for signing in</h3>
@@ -47,4 +48,34 @@ if (isset($_POST['save'])) {
 
     }
 }
+    function sendsms($names, $phone){
+
+        $receiver=$phone;
+        $sender="+250788890071";
+        $mssg="Hello ".$names." Your reservation for an office space has been successfully received and your reservation code is: ".$reserveCode;
+
+        $data=array(
+                "sender"=>$sender,
+                "recipients"=>$receiver,
+                "message"=>$mssg,
+            );
+
+        $url="https://www.intouchsms.co.rw/api/sendsms/.json";
+        $data=http_build_query($data);
+        $username="renemucyo";
+        $password="mucyo12345";
+
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_USERPWD,$username.":".$password);
+        curl_setopt($ch,CURLOPT_POST,true);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+        $result=curl_exec($ch);
+        $httpcode=curl_getinfo($ch,CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+    }
+
 ?>
