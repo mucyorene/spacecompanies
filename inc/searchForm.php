@@ -6,20 +6,19 @@
     <div class="box-collapse-wrap form">
       <form class="form-a">
         <div class="row">
-          <div class="col-md-12 mb-2">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="Type">Keyword</label>
               <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
             </div>
           </div>
-          <div class="col-md-6 mb-2">
+          <!-- <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Type</label>
               <select class="form-control form-control-lg form-control-a" id="Type">
                 <option>All Type</option>
                 <option>For Rent</option>
                 <option>For Sale</option>
-                <option>Open House</option>
               </select>
             </div>
           </div>
@@ -80,9 +79,9 @@
                 <option>$200,000</option>
               </select>
             </div>
-          </div>
+          </div> -->
           <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
+            <button type="submit" class="btn btn-outline-primary btn-sm">Search Space</button>
           </div>
         </div>
       </form>

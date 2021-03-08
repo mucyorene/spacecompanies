@@ -43,6 +43,7 @@ require_once("includes/db.php");
                   <div class="col-sm-12 col-md-12 col-lg-12">
                   <form action="" method="post">
                     <div class="row col-md-12">
+                        For Rent
                         <div class="col-md-3">
                             <input type="date" class="form-control" id="day1">
                         </div>
@@ -51,6 +52,19 @@ require_once("includes/db.php");
                         </div>
                         <div class="col-md-3">
                             <button type="button" id="between" onclick="periodic()" class="btn btn-success">View</button>
+                        </div>
+                        <br><br>
+                        <div class="row col-md-12">
+                            For Sale
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" id="day11">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" id="day22">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" id="between" onclick="periodic2()" class="btn btn-success">View</button>
+                            </div>
                         </div>
                         
                     </div>
@@ -135,6 +149,25 @@ require_once("includes/db.php");
       }
       else{
           $('#period').load('load_between.php?day1='+day1+'&day2='+day2);
+      }
+  }
+
+  function periodic2(){
+      var day11= $('#day11').val();
+      var day22= $('#day22').val();
+      
+      if(day11=='')
+      {
+        $('#day11').css('border-bottom-color', '#c00');
+        $('#day11').css('color', '#c00');
+      }
+      else if(day22=='')
+      {
+        $('#day22').css('border-bottom-color', '#c00');
+        $('#day22').css('color', '#c00');  
+      }
+      else{
+          $('#period').load('load_between.php?day1='+day11+'&day2='+day22);
       }
   }
 </script>

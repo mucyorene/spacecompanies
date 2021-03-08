@@ -13,16 +13,18 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
+  <!-- <link rel="stylesheet" href="assets/css/custom.css"> -->
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
 </head>
 
 <body>
   <div class="loader"></div>
   <div id="app">
-      
-      <?php require_once("includes/left_nav.php")?>
-      <?php require_once("includes/header.php")?>
+  <?php 
+      include 'includes/header.php';
+      include 'includes/left_nav.php';
+       ?>
+    
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
@@ -398,7 +400,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a></a>
+          <a href="localhost/spaceco">SPACECO</a></a>
         </div>
         <div class="footer-right">
         </div>

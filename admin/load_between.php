@@ -32,7 +32,7 @@ if(isset($_GET['day1']))
         <tbody>
         <?php
             $id = 
-            $query = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Rent' AND customers.reserveStatus='Approved' AND customers.checkin between '$day1' AND '$day2'") or die(mysqli_error($conn));
+            $query = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Rent' AND customers.reserveStatus='Approved' AND customers.approvedAt BETWEEN '$day1' AND '$day2'") or die(mysqli_error($conn));
             if (mysqli_num_rows($query)>0) {
                 $counter = 1;
                 while ($rows = mysqli_fetch_array($query)) {
@@ -50,6 +50,26 @@ if(isset($_GET['day1']))
                     </tr>
                     <?php
                 $counter++;}
+            }else{
+                $query2 = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Sales' AND customers.reserveStatus='Approved' AND customers.approvedAt BETWEEN '$day1' AND '$day2'") or die(mysqli_error($conn));
+                if (mysqli_num_rows($query2)) {
+                    $counter2=1;
+                    while ($rows1 = mysqli_fetch_array($query2)) {
+                        ?>
+                        <tr>
+                            <td><?= $counter2;?></td>
+                            <td><?= $rows1['propertyId'];?></td>
+                            <td><?= $rows1['fullnames'];?></td>
+                            <td><?= $rows1['phoneNumber'];?></td>
+                            <td><?= $rows1['reserveId'];?></td>
+                            <td><?= $rows1['email'];?></td>
+                            <td><?= $rows1['cusLocation'];?></td>
+                            <td><?= $rows1['checkin'];?></td>
+                            <td><?= $rows1['checkout'];?></td>
+                        </tr>
+                        <?php
+                    $counter2++;}
+                }
             }
         ?>
         </tbody>

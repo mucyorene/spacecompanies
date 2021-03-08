@@ -1,8 +1,9 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+      <a href="index"> <span
           class="logo-name">Spaceco</span>
+          <!-- <img alt="image" src="assets/img/logo.png" class="header-logo" /> -->
       </a>
     </div>
     
@@ -59,6 +60,12 @@
           </ul>
         </li>
       </li>
+
+      <li class="menu-header">Users</li>
+      <li class="dropdown" id="users">
+        <a href="users" class="nav-link"><i data-feather="user"></i><span>Users</span></a>
+      </li>
+
       <li class="menu-header">Contacts</li>
         <li class="dropdown" id="messageNav">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="message-circle"></i><span>Messages</span></a>

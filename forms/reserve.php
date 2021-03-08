@@ -10,7 +10,7 @@
         $reserveCode = date('Y').$phone.date('d').date('h');
         $offId;
         $comId;
-
+        $times = date("Y-m-d");
         $check = mysqli_query($conn,"SELECT *FROM customers WHERE fullnames = '$name' AND phoneNumber = '$phone' AND email = '$email' AND reserveId = '$reserveCode'") or die(mysqli_error($conn));
         if (mysqli_num_rows($check)>0) {
             $msg="<div class='alert alert-danger alert-dismissible' role='alert'>
@@ -19,14 +19,14 @@
                     </div>";
         }else{
             if (empty($in) && empty($out)) {
-                $saveSale = mysqli_query($conn,"INSERT INTO `customers` (`id`, `fullnames`, `phoneNumber`, `email`, `cusLocation`, `checkin`, `checkout`, `reserveStatus`, `offId`, `reserveId`, `companyId`, `resTime`)
-                 VALUES (NULL, '$name', '$phone', '$email', '$location', '', '', 'Approve', '$offId', '$reserveCode','$comId',NULL)") or die(mysqli_error($conn));
+                $saveSale = mysqli_query($conn,"INSERT INTO `customers` (`id`, `fullnames`, `phoneNumber`, `email`, `cusLocation`, `checkin`, `checkout`, `reserveStatus`, `offId`, `reserveId`, `companyId`, `resTime`, `approvedAt`)
+                 VALUES (NULL, '$name', '$phone', '$email', '$location', '', '', 'Approve', '$offId', '$reserveCode','$comId','$times','')") or die(mysqli_error($conn));
 
 
                  $saveNot = mysqli_query($conn,"INSERT INTO `conotification` (`id`, `content`, `notTime`, `status`, `companyId`) VALUES ('', 'New customer booked sales space',NULL, 'unread','$comId')") or die(mysqli_error($conn));
                  
                  if ($saveSale) {
-                     //sendsms($name, $phone, $reserveCode);
+                     sendsms($name, $phone, $reserveCode);
 
                     $msg="<div class='alert alert-success alert-dismissible' role='alert'>
                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -34,15 +34,15 @@
                     </div>";
                  }
             }else{
-                $saveRent = mysqli_query($conn,"INSERT INTO `customers` (`id`, `fullnames`, `phoneNumber`, `email`, `cusLocation`, `checkin`, `checkout`, `reserveStatus`, `offId`, `reserveId`,`companyId`, `resTime`)
-                 VALUES (NULL, '$name', '$phone', '$email', '$location', '$in', '$out', 'Approve', '$offId', '$reserveCode','$comId',NULL)") or die(mysqli_error($conn));
+                $saveRent = mysqli_query($conn,"INSERT INTO `customers` (`id`, `fullnames`, `phoneNumber`, `email`, `cusLocation`, `checkin`, `checkout`, `reserveStatus`, `offId`, `reserveId`,`companyId`, `resTime`, `approvedAt`)
+                 VALUES (NULL, '$name', '$phone', '$email', '$location', '$in', '$out', 'Approve', '$offId', '$reserveCode','$comId','$times','')") or die(mysqli_error($conn));
                 
                 
 
                 $saveNot = mysqli_query($conn,"INSERT INTO `conotification` (`id`, `content`, `notTime`, `status`, `companyId`) VALUES ('', 'New customer booked Rent space',NULL, 'unread','$comId')") or die(mysqli_error($conn));
                                 
                  if ($saveRent) {
-                     //sendsms($name, $phone, $reserveCode);
+                        sendsms($name, $phone, $reserveCode);
                         $msg="<div class='alert alert-success alert-dismissible' role='alert'>
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                         <h3>Thanks for reserving this space</h3>

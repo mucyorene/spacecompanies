@@ -231,7 +231,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          <a href="">&copy Uratengamaye Kivu Ltd | Rwanda</a></a>
+          <a href="">&copy Spaceco | Rwanda</a></a>
         </div>
         <div class="footer-right">
         </div>

@@ -61,7 +61,7 @@
                         <?php
                             $id = 
                             $query = mysqli_query($conn,"SELECT *FROM customers,offices WHERE customers.companyId='{$_SESSION['spacecompanies']}' 
-                            AND customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Sales' ORDER BY customers.id DESC") or die(mysqli_error($conn));
+                            AND customers.companyId=offices.companyId AND offices.id = customers.offId AND offices.status='Sales' AND reserveStatus='Approve' ORDER BY customers.id DESC") or die(mysqli_error($conn));
                             if (mysqli_num_rows($query)>0) {
                                 $counter = 1;
                                 while ($rows = mysqli_fetch_array($query)) {

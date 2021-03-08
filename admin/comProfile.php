@@ -29,9 +29,12 @@
 <body>
   <div class="loader"></div>
   <div id="app">
-      
-      <?php require_once("includes/left_nav2.php")?>
-      <?php require_once("includes/headerCompany.php")?>
+
+    <?php 
+      include 'includes/headercompany.php';
+      include 'includes/left_nav2.php';
+    ?>
+    
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">

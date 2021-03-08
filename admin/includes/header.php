@@ -135,7 +135,7 @@
                     if ((mysqli_num_rows($notif)>0)) {
                     while ($noti = mysqli_fetch_array($notif)) {
                       ?>
-                      <a href="airportTaxSer" class="dropdown-item dropdown-item-unread">
+                      <a href="unreadNotification" class="dropdown-item dropdown-item-unread">
                         <span class="dropdown-item-icon bg-primary text-white">
                           <i class="fas fa-code"></i>
                         </span>

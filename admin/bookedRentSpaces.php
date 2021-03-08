@@ -36,7 +36,7 @@
               <div class="col-sm-12 col-md-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
-                    <h4><button class="btn btn-sm btn-outline-info">Approve All</button></h4>
+                    <h4><a href="includes/approveAll?id=<?= $_SESSION['spacecompanies'];?>" class="btn btn-sm btn-outline-info">Approve All</a></h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -65,30 +65,30 @@
                                 $counter = 1;
                                 while ($rows = mysqli_fetch_array($query)) {
                                    ?>
-                                        <tr>
-                                            <td><?= $counter;?></td>
-                                            <td><?= $rows['propertyId'];?></td>
-                                            <td><?= $rows['fullnames'];?></td>
-                                            <td><?= $rows['phoneNumber'];?></td>
-                                            <td><?= $rows['reserveId'];?></td>
-                                            <td><?= $rows['email'];?></td>
-                                            <td><?= $rows['cusLocation'];?></td>
-                                            <td><?= $rows['checkin'];?></td>
-                                            <td><?= $rows['checkout'];?></td>
-                                            <?php
-                                              if ($rows['reserveStatus'] == 'Approve') {
-                                                ?>
-                                                  <td><button onClick="updateResStatus('<?= $rows['reserveId']?>','<?= $rows['id']?>')" style="color:white;" class="btn btn-flat btn-info btn-sm"><?= $rows['reserveStatus']?></button></td>
-                                                <?php
-                                              }else{
-                                                ?>
-                                                  <td><button onClick="updateResStatus('<?= $rows['reserveId']?>')" style="color:white;" class="btn btn-flat btn-success btn-sm"><?= $rows['reserveStatus']?></button></td>
-                                                <?php
-                                              }
-                                            ?>
-                                            <td><button onClick="deleteReservation('<?= $rows['reserveId'];?>','<?= $rows['name'];?>')" id="deleteCom" style="color:white;" class="btn btn-flat btn-danger btn-sm">Delete</button></td>                                            
-                                            
-                                        </tr>
+                                      <tr>
+                                          <td><?= $counter;?></td>
+                                          <td><?= $rows['propertyId'];?></td>
+                                          <td><?= $rows['fullnames'];?></td>
+                                          <td><?= $rows['phoneNumber'];?></td>
+                                          <td><?= $rows['reserveId'];?></td>
+                                          <td><?= $rows['email'];?></td>
+                                          <td><?= $rows['cusLocation'];?></td>
+                                          <td><?= $rows['checkin'];?></td>
+                                          <td><?= $rows['checkout'];?></td>
+                                          <?php
+                                            if ($rows['reserveStatus'] == 'Approve') {
+                                              ?>
+                                                <td><button onClick="updateResStatus('<?= $rows['reserveId']?>','<?= $rows['id']?>')" style="color:white;" class="btn btn-flat btn-info btn-sm"><?= $rows['reserveStatus']?></button></td>
+                                              <?php
+                                            }else{
+                                              ?>
+                                                <td><button onClick="updateResStatus('<?= $rows['reserveId']?>')" style="color:white;" class="btn btn-flat btn-success btn-sm"><?= $rows['reserveStatus']?></button></td>
+                                              <?php
+                                            }
+                                          ?>
+                                          <td><button onClick="deleteReservation('<?= $rows['reserveId'];?>','<?= $rows['name'];?>')" id="deleteCom" style="color:white;" class="btn btn-flat btn-danger btn-sm">Delete</button></td>                                            
+                                          
+                                      </tr>
                                    <?php
                                 $counter++;}
                             }
