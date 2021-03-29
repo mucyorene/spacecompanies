@@ -494,12 +494,35 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
     $(function(){
       $("#navHome").addClass('active');
+
+      $("#searchInput").keyup(function(){
+        var items = $(this).val();
+        //alert(items);
+        $("#results").html('');
+        if(items != ''){
+
+          $.ajax({
+            url:"searches.php",
+            method:"POST",
+            data:{search:items},
+            dataType:"text",
+            success:function(response){
+              $("#results").html(response);
+            }
+          });
+
+        }else{
+          $("#results").html('');
+        }
+        
+      });
     });
   </script>
 

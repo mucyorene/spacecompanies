@@ -215,6 +215,28 @@
         //alert("Rwanda is the best " +values);
         $("#loadRent").load("inc/loadSales?values="+values);
       });
+
+      $("#searchInput").keyup(function(){
+        var items = $(this).val();
+        //alert(items);
+        $("#results").html('');
+        if(items != ''){
+
+          $.ajax({
+            url:"searches.php",
+            method:"POST",
+            data:{search:items},
+            dataType:"text",
+            success:function(response){
+              $("#results").html(response);
+            }
+          });
+
+        }else{
+          $("#results").html('');
+        }
+        
+      });
     });
   </script>
 </body>
