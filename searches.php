@@ -8,7 +8,7 @@
         while ($row = mysqli_fetch_array($search)) {
             $output.=
                 '<p class="alert alert-success">
-                <a href="pages/searchedItem.php?search='.rand()."2j".rand()."dd".rand()."fLksl)L!".$row['id']."!JfdL".rand()."2j".rand()."dd".rand().'">'.$row['name'].'</a>
+                <a href="searchResults.php?search='.rand()."2j".rand()."dd".rand()."fLksl)L!".$row['id']."!JfdL".rand()."2j".rand()."dd".rand().'">'.$row['name'].'</a>
                 </p>';
         }
         echo $output;

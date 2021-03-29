@@ -5,31 +5,18 @@
     <?php
      include("inc/header.php");?>
 </head>
-
 <body>
 
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <?php include("inc/searchForm.php");?>
-  <!-- End Property Search Section -->>
-
-  <!-- ======= Header/Navbar ======= -->
   <?php
     include("inc/nav.php");
   ?>
-  <!-- End Header/Navbar -->
-
-  <!-- ======= Intro Section ======= -->
   <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
-
-          <?php
-            // $ch = mysqli_query($conn,"SELECT *FROM offices ORDER BY id DESC limit 6") or die(mysqli_error($conn));
-            // if (mysqli_num_rows($ch)>0) {
-            //   while ($intro = mysqli_fetch_array($ch)) {
-          ?>
-            <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/about1.jpg)">
+            <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/about-1.jpg);">
               <div class="overlay overlay-a"></div>
               <div class="intro-content display-table">
                 <div class="table-cell">
@@ -37,11 +24,15 @@
                     <div class="row">
                       <div class="col-lg-8">
                         <div class="intro-body">
-                          <p class="intro-title-top"><?php //$intro['location'];?>Rwandan Deserved the Best
+                          <!-- <p class="intro-title-top"><?php //$intro['location'];?>Rwandan Deserved the Best -->
                             <!-- <br> KG Paul VI</p> -->
                           <h1 class="intro-title mb-4">
-                            <span class="color-b"><?php //$intro['rooms'];?> </span><?php //$intro['name'];?>Space Company LTD
+                            <!-- <span class="color-b"><?php //$intro['rooms'];?> </span><?php //$intro['name'];?>Space Company LTD -->
                             <!-- <br>Paul VI</h1> -->
+                          <p class="intro-subtitle intro-price">
+                          
+                          </p>
+                          <br><br><br><br><br><br>
                           <p class="intro-subtitle intro-price">
                             <a href="#"><span class="price-a"><?php //$intro['status'];?>Find your | Affordable <?php //$intro['price'];?></span></a>
                           </p>
@@ -62,67 +53,8 @@
 
   <main id="main">
     <!-- ======= Services Section ======= -->
-    <section class="section-services section-t8">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a">Our Services</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card-box-c foo">
-              <div class="card-header-c d-flex">
-                <div class="card-title-c align-self-center">
-                  <h2 class="title-c">Sale Spaces</h2>
-                </div>
-              </div>
-              <div class="card-body-c">
-                <p class="content-c">
-                  Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                  convallis a pellentesque
-                  nec, egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer-c">
-                <a href="#" class="link-c link-icon">Read more
-                  <span class="ion-ios-arrow-forward"></span>
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-4"></div>
-          
-          <div class="col-md-4">
-            <div class="card-box-c foo">
-              <div class="card-header-c d-flex">
-                
-                <div class="card-title-c align-self-center">
-                  <h2 class="title-c">Lend Spaces</h2>
-                </div>
-              </div>
-              <div class="card-body-c">
-                <p class="content-c">
-                  Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                  convallis a pellentesque
-                  nec, egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer-c">
-                <a href="#" class="link-c link-icon">Read more
-                  <span class="ion-ios-arrow-forward"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Services Section -->
+    <!-- End Services Section -->
 
     <!-- ======= Latest Properties Section ======= -->
     <section class="section-property section-t8">
